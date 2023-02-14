@@ -14,26 +14,32 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_GENRES' });
-    }, []);
+   const handleClick= (movie) => { 
+        dispatch({type:'FETCH_GENRES', payload: movie})
+        history.push(`/details/${movie.id}`)
+    }
 
+    
+ 
     return (
         <main>
             <h1>MovieList</h1>
             <section className="movies">
                 {movies.map(movie => {
                     return (
+                   
                         <div key={movie.id} >
-                            <MovieItem/>
+                             {/* <MovieItem/> */}
                             <h3>{movie.title}</h3>
                             
                             <img src={movie.poster} alt={movie.title}/>
+
+                            <button onClick={() =>  handleClick(movie)}className="button">Next</button>
                            
                         </div>
                     );
                 })}
-                <button onClick={() => history.push('/Details')} className="button">Next</button>
+                {/* <button onClick={() => history.push(`/Details/${movie.id}`)}className="button">Next</button> */}
 
             </section>
         </main>

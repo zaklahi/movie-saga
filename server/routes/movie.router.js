@@ -16,11 +16,14 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/details', (req, res) => {
+router.get('/details/:id', (req, res) => {
 
-  const genreQuery = `SELECT * FROM "movies" join "movies_genres" on "movies"."id" = "movies_genres".movie_id
-  JOIN "genres" on "genres"."id" = "movies_genres".genre_id;`;
-  pool.query(genreQuery)
+  const genreQuery = `SELECT "genres"."name" FROM "movies" join "movies_genres" on "movies"."id" = "movies_genres".movie_id
+  JOIN "genres" on "genres"."id" = "movies_genres".genre_id
+  WHERE movies.id= $1 ;`
+
+  let sqlParams = req.params.id
+  pool.query(genreQuery, [sqlParams])
     .then( result => {
       res.send(result.rows);
     })
