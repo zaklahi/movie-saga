@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 import { useHistory } from 'react-router-dom';
-import MovieItem from './MovieItem';
+
 
 function MovieList() {
 
@@ -28,13 +28,13 @@ function MovieList() {
                 {movies.map(movie => {
                     return (
                    
-                        <div key={movie.id} >
+                        <div key={movie.id} onClick={() =>  handleClick(movie)}>
                              {/* <MovieItem/> */}
                             <h3>{movie.title}</h3>
                             
                             <img src={movie.poster} alt={movie.title}/>
 
-                            <button onClick={() =>  handleClick(movie)}className="button">Next</button>
+                            {/* <div onClick={() =>  handleClick(movie)}></div> */}
                            
                         </div>
                     );

@@ -16,23 +16,7 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/details/:id', (req, res) => {
 
-  const genreQuery = `SELECT "genres"."name" FROM "movies" join "movies_genres" on "movies"."id" = "movies_genres".movie_id
-  JOIN "genres" on "genres"."id" = "movies_genres".genre_id
-  WHERE movies.id= $1 ;`
-
-  let sqlParams = req.params.id
-  pool.query(genreQuery, [sqlParams])
-    .then( result => {
-      res.send(result.rows);
-    })
-    .catch(err => {
-      console.log('ERROR: Get all movies', err);
-      res.sendStatus(500)
-    })
-
-});
 
 
 
