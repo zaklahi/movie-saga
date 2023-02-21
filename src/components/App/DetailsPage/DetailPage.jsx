@@ -39,7 +39,7 @@ function DetailPage() {
 
                         <img src={details.poster} alt={details.title} />
                         <h3>{details.description}</h3>
-                        <Button onClick={() => history.push('/')} variant="outlined" color="primary">EDIT</Button>
+                       
 
                         {genres.map(genre => {
                             return (

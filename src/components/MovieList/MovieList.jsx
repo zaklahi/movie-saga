@@ -36,11 +36,11 @@ function MovieList() {
                              {/* <MovieItem/> */}
                             <h3>{movie.title}</h3>
                             
-                            {/* <img src={movie.poster} alt={movie.title}/> */}
+                            <img src={movie.poster} alt={movie.title}/>
 
                             {/* <div onClick={() =>  handleClick(movie)}></div> */}
-                            <Card variant="contained"><img src={movie.poster}/>
-                            </Card>
+                            {/* <Card variant="contained"><img src={movie.poster}/>
+                            </Card> */}
                         </div>
                     );
                 })}
