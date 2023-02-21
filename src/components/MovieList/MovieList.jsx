@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 import { useHistory } from 'react-router-dom';
+import Card from "@material-ui/core/card";
+
+
 
 
 function MovieList() {
@@ -25,17 +28,19 @@ function MovieList() {
         <main>
             <h1>MovieList</h1>
             <section className="movies">
+                
                 {movies.map(movie => {
                     return (
-                   
+                        
                         <div key={movie.id} onClick={() =>  handleClick(movie)}>
                              {/* <MovieItem/> */}
                             <h3>{movie.title}</h3>
                             
-                            <img src={movie.poster} alt={movie.title}/>
+                            {/* <img src={movie.poster} alt={movie.title}/> */}
 
                             {/* <div onClick={() =>  handleClick(movie)}></div> */}
-                           
+                            <Card variant="contained"><img src={movie.poster}/>
+                            </Card>
                         </div>
                     );
                 })}

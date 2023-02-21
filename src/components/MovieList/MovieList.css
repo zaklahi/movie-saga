@@ -1,5 +1,12 @@
 .movies {
     display : flex;
     flex-wrap: wrap;
-    background-color: antiquewhite;
+    background-color: rgb(216, 210, 203);
 }
+.head{
+    background-color: rgb(3, 2, 2);
+}
+
+.movies {
+    justify-content: space-evenly;
+  }
